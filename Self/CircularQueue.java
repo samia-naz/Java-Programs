@@ -38,7 +38,6 @@ public class CircularQueue {
     }  
 
     //Dequeue()
-
     static void dequeue()
     {   int x = 0;
         if(front<0)
@@ -70,7 +69,75 @@ public class CircularQueue {
         } 
         System.out.println("The front is: " +front);
         System.out.println("The rear is: " +rear);
+    } 
+
+    //  ********* Double Ended Queue *********
+
+    //insertAtFront()
+    static void InsertionAtFront(int x)
+    {
+        if((front == 0 && rear >=4)|| (front == rear+1))
+        {
+            System.out.println("Queue is full!");
+            return;
+        } 
+        else
+        {
+            if(front == -1)
+            {
+                front = 0;
+                rear = 0;
+                queue[front] = x;
+            } 
+            else
+            {
+                if(front ==0)
+                {
+                    front = queue.length-1;
+                    queue[front] = x;
+
+                } 
+                else
+                {
+                    front--;
+                    queue[front] = x; 
+                }
+            }
+        }
+    } 
+
+    //DeleteFromRear()
+    static void DeleteFromRear()
+    {   int x = 0;
+        if(front <0)
+        {
+            System.out.println("Queue is empty!");
+            return;
+        } 
+        else
+        {
+            if(front == rear)
+            {
+                 x = queue[rear];
+                rear = -1;
+                front = -1;
+            } 
+            else
+            {
+                if(rear == 0)
+                {
+                    x = queue[rear];
+                    rear = queue.length-1;
+                }
+                else
+                {
+                    x = queue[rear];
+                    rear--;
+                }
+            } 
+        }
     }
+    
 
     public static void main(String[] args) {
        /*  char ch = 'Y';
@@ -82,13 +149,15 @@ public class CircularQueue {
             ch = sc.next().toUpperCase().charAt(0);
         }*/ 
 
-
+            
             int choice = 0;
             do {
                 System.out.println(" ***** Circular Queue *****  ");
-                System.out.println("1. Enqueue");
-                System.out.println("2.Dequeue");
-                System.out.println("3.Exit");
+                System.out.println("1.Insertion at Rear");
+                System.out.println("2.Deletion from front");
+                System.out.println("3.Insertion at Front");
+                System.out.println("4. Deletion From Rear");
+                System.out.println("5.Exit");
                 choice = sc.nextInt();
                 switch (choice) {
                     case 1:
@@ -100,14 +169,23 @@ public class CircularQueue {
                         dequeue();
                         break;
                     case 3:
+                        System.out.println("Enter your data: ");
+                         data = sc.nextInt();
+                        InsertionAtFront(data);  
+                        break;
+                    case 4: 
+                        DeleteFromRear();
+                        break;  
+                    case 5:
                         System.out.println("Exited");
                         break;
+
                 
                     default:
                         System.out.println("Invalid Choice!");
                         break; 
                 } 
-            } while(choice!=3);
+            } while(choice!=5);
 
     }
     
