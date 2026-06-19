@@ -34,7 +34,39 @@ public class CircularQueue {
 
         }
         System.out.println("Front is " + front+ "\t" + "Rear is "  + rear);
-    } 
+    }  
+
+    //Dequeue()
+
+    static void dequeue()
+    {   int x = 0;
+        if(front<0)
+        {
+            System.out.println("Queue is empty!");
+            return;
+        } 
+        else
+        {
+            if(front == rear)
+            {
+                 x = queue[front];
+                front = -1;
+                rear = -1;
+
+            } 
+            else
+            {
+                if(front>=4)
+                {
+                    front= 0;
+                } 
+                else
+                {   x = queue[front];
+                    front++;
+                }
+            }
+        }
+    }
 
     public static void main(String[] args) {
         char ch = 'Y';
