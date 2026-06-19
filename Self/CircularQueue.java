@@ -33,7 +33,8 @@ public class CircularQueue {
             }
 
         }
-        System.out.println("Front is " + front+ "\t" + "Rear is "  + rear);
+        System.out.println("The Front is:" + front);
+        System.out.println("The Rear is "  + rear);
     }  
 
     //Dequeue()
@@ -57,26 +58,57 @@ public class CircularQueue {
             else
             {
                 if(front>=4)
-                {
-                    front= 0;
-                } 
+                {   x = queue[front];
+
+                    front = 0;
+                }  
                 else
                 {   x = queue[front];
                     front++;
                 }
             }
-        }
+        } 
+        System.out.println("The front is: " +front);
+        System.out.println("The rear is: " +rear);
     }
 
     public static void main(String[] args) {
-        char ch = 'Y';
+       /*  char ch = 'Y';
         while (ch != 'N') {
             System.out.println("Enter your element: ");
             int data = sc.nextInt();
             Enqueue(data);
             System.out.println("Continue? (Y/N): ");
             ch = sc.next().toUpperCase().charAt(0);
-        }
+        }*/ 
+
+
+            int choice = 0;
+            do {
+                System.out.println(" ***** Circular Queue *****  ");
+                System.out.println("1. Enqueue");
+                System.out.println("2.Dequeue");
+                System.out.println("3.Exit");
+                choice = sc.nextInt();
+                switch (choice) {
+                    case 1:
+                        System.out.println("Enter your data: ");
+                        int data = sc.nextInt();
+                        Enqueue(data);
+                        break; 
+                    case 2:
+                        dequeue();
+                        break;
+                    case 3:
+                        System.out.println("Exited");
+                        break;
+                
+                    default:
+                        System.out.println("Invalid Choice!");
+                        break; 
+                } 
+            } while(choice!=3);
+
     }
     
 }
