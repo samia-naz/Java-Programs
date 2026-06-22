@@ -110,7 +110,7 @@ public class CircularQueue {
     static void DeleteFromRear()
     {   int x = 0;
         if(front <0)
-        {
+        { 
             System.out.println("Queue is empty!");
             return;
         } 
