@@ -33,7 +33,7 @@ public class BST {
             temp = ptr;
             ptr = ptr.right;
         }  }
-        
+
         if(newNode.data<temp.data)
         {
             temp.left = newNode;
@@ -57,6 +57,16 @@ public class BST {
             preOrder(ptr.right);
 
         }
+    } 
+    //inOrder()
+    static void inOrder(Node ptr)
+    {
+        if(ptr!=null)
+        {
+            inOrder(ptr.left);
+            System.out.print(ptr.data + " ");
+            inOrder(ptr.right);
+        }
     }
 
     public static void main(String[] args) {
@@ -70,9 +80,17 @@ public class BST {
             System.out.println("Do you want to add more Nodes: ");
             ch = sc.next().charAt(0);
         }
+        // call for PreOrder()
         System.out.println(" **** PRE ORDER TRAVERSAL ****");
         System.out.print("The preOrder is : ");
-        preOrder(root);
+        preOrder(root); 
+
+        //Call for Inorder()
+        System.out.println("\n");
+        System.out.println(" **** In ORDER TRAVERSAL ****");
+        System.out.print("The InOrder is : ");
+        inOrder(root); 
+
     }   
 
     
