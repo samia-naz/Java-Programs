@@ -67,6 +67,16 @@ public class BST {
             System.out.print(ptr.data + " ");
             inOrder(ptr.right);
         }
+    } 
+    // postOrder()
+    static void postOrder(Node ptr)
+    {
+        if(ptr!=null)
+        {
+            postOrder(ptr.left);
+            postOrder(ptr.right);
+            System.out.print(ptr.data + " ");
+        }
     }
 
     public static void main(String[] args) {
@@ -91,7 +101,13 @@ public class BST {
         System.out.print("The InOrder is : ");
         inOrder(root); 
 
-    }   
+        System.out.println("\n");
+        System.out.println(" **** Post ORDER TRAVERSAL ****");
+        System.out.print("The PostOrder is : ");
+        postOrder(root);
+
+    }  
+ 
 
     
 
