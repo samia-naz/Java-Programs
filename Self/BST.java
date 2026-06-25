@@ -100,6 +100,26 @@ public class BST {
             } 
             return height;
         }
+    } 
+
+    // countLeafNodes()
+    static int countLeafNodes(Node ptr)
+    {  
+        if(ptr == null)
+        {
+            return 0;
+        } 
+        else
+        {
+            if(ptr.left == null && ptr.right == null)
+            {
+                return 1;
+            } 
+        } 
+        int left = countLeafNodes(ptr.left);
+        int right = countLeafNodes(ptr.right);
+        return left + right;
+        
     }
 
     public static void main(String[] args) {
@@ -133,6 +153,10 @@ public class BST {
         System.out.println(" **** THE HEIGHT OF TREE  ****");
         int height = height(root);
         System.out.print("The Height is : " + height);
+        
+        System.out.println("\n");
+        int count = countLeafNodes(root);
+        System.out.print("The Count of Leaf Nodes is : " + count);
         
 
 
