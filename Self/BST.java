@@ -77,6 +77,29 @@ public class BST {
             postOrder(ptr.right);
             System.out.print(ptr.data + " ");
         }
+    } 
+    // *************** Other Important Logics of Trees *********************
+    // height()
+    static int height(Node ptr)
+    {   int height = 0;
+        if(ptr == null)
+        {
+            return 0;
+        }
+        else
+        {
+            int left = height(ptr.left);
+            int right = height(ptr.right);
+            if(left > right)
+            {
+                height = left + 1; 
+            } 
+            else
+            {
+                height = right +1;
+            } 
+            return height;
+        }
     }
 
     public static void main(String[] args) {
@@ -105,6 +128,14 @@ public class BST {
         System.out.println(" **** Post ORDER TRAVERSAL ****");
         System.out.print("The PostOrder is : ");
         postOrder(root);
+
+        System.out.println("\n");
+        System.out.println(" **** THE HEIGHT OF TREE  ****");
+        int height = height(root);
+        System.out.print("The Height is : " + height);
+        
+
+
 
     }  
  
